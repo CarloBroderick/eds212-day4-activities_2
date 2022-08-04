@@ -1,0 +1,43 @@
+---
+title: "R-Exploring"
+author: "Carlo Broderick"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(skimr)
+library(GGally)
+```
+
+Look at the raw data
+
+```{r}
+view(diamonds)
+```
+
+Explore the data
+
+```{r}
+names(diamonds)
+dim(diamonds)
+summary(diamonds)
+head(diamonds)
+tail(diamonds)
+skimr::skim(diamonds)
+[ggpairs(diamonds)
+```
+
+Create your own data plots
+
+```{r}
+ggplot(data = diamonds, aes(x = carat, y = price)) +
+         geom_point()
+```
+
+```{r}
+ggplot(data = diamonds, aes(x = carat)) +
+         geom_histogram(binwidth = .5)
+```
